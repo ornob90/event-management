@@ -6,6 +6,9 @@ const Service = ({ events }) => {
   return (
     <div className="w-full">
       <Container>
+        <div className="flex justify-center items-center w-full">
+          <h1 className="text-4xl font-bold mb-8">Services</h1>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {events.slice(0, 6).map((event) => (
             <div
@@ -20,9 +23,9 @@ const Service = ({ events }) => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="pb-6 card-title text-2xl font-bold">
+                <h1 className="pb-6 card-title text-2xl font-bold z-[-1]">
                   {event.eventName}
-                </h2>
+                </h1>
                 <p className="text-base w-[90%]">{event.shortDesc}</p>
                 <div className="card-actions justify-end items-center">
                   <p className="font-semibold text-xl">
