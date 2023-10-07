@@ -16,7 +16,14 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/events">Events</NavLink>
+        <NavLink
+          to="/events"
+          className={({ isActive }) =>
+            isActive ? "bg-orange-600 text-white" : ""
+          }
+        >
+          Events
+        </NavLink>
       </li>
       <li>
         <NavLink to="/pricing">Pricing</NavLink>
