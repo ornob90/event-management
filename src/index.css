@@ -20,4 +20,32 @@
     );
     background-size: cover;
   }
+
+  .bg-wedding {
+    background: linear-gradient(
+        to right,
+        rgba(165, 165, 165, 0.8),
+        rgba(248, 248, 248, 0.8)
+      ),
+      url("https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+    background-size: cover;
+  }
+  .bg-birthday {
+    background: linear-gradient(
+        to right,
+        rgba(237, 252, 197, 0.8),
+        rgba(248, 248, 248, 0.8)
+      ),
+      url("https://images.unsplash.com/photo-1464349153735-7db50ed83c84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1564&q=80");
+    background-size: cover;
+  }
+  .bg-anniversary {
+    background: linear-gradient(
+        to right,
+        rgba(223, 255, 137, 0.8),
+        rgba(248, 248, 248, 0.8)
+      ),
+      url("https://t4.ftcdn.net/jpg/06/28/19/43/360_F_628194308_6CYNNx9U5LhYm3YBAoNNP0WB6ZRi6klu.jpg");
+    background-size: cover;
+  }
 }

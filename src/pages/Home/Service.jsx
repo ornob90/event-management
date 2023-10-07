@@ -1,14 +1,13 @@
 import React from "react";
 import Container from "../../components/Shared/Container";
 import Button from "../../components/Shared/Button";
+import SectionHeader from "../../components/Shared/SectionHeader";
 
 const Service = ({ events }) => {
   return (
     <div className="w-full">
       <Container>
-        <div className="flex justify-center items-center w-full">
-          <h1 className="text-4xl font-bold mb-8">Services</h1>
-        </div>
+        <SectionHeader title="Services" />
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {events.slice(0, 6).map((event) => (
             <div

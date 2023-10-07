@@ -28,7 +28,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="z-[12] fixed bg-transparent text-white backdrop-blur-lg  top-0 left-0 navbar  px-[5%] mx-auto">
+    <div className="z-[12] bg-transparent text-white backdrop-blur-lg  navbar w-[full] px-10 mx-auto max-w-[1440px]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
