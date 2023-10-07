@@ -1,5 +1,6 @@
 [
   {
+    "id": "001",
     "eventName": "Wedding Celebration",
     "eventType": "Wedding",
     "date": "2023-05-20",
@@ -18,6 +19,7 @@
     "website": "www.johnsarahwedding.com"
   },
   {
+    "id": "002",
     "eventName": "Birthday Bash Extravaganza",
     "eventType": "Birthday Party",
     "date": "2023-09-15",
@@ -36,6 +38,7 @@
     "RSVPRequired": true
   },
   {
+    "id": "003",
     "eventName": "Anniversary Dinner Soiree",
     "eventType": "Anniversary",
     "date": "2023-11-08",
@@ -53,6 +56,7 @@
     "menuOptions": ["Vegetarian", "Non-vegetarian", "Vegan"]
   },
   {
+    "id": "004",
     "eventName": "Baby Shower Fiesta",
     "eventType": "Baby Shower",
     "date": "2023-07-10",
@@ -70,6 +74,7 @@
     "giftRegistry": "www.harperbabyregistry.com"
   },
   {
+    "id": "005",
     "eventName": "Retirement Farewell Party",
     "eventType": "Retirement Party",
     "date": "2023-04-18",
@@ -87,6 +92,7 @@
     "speechesScheduled": true
   },
   {
+    "id": "006",
     "eventName": "Engagement Party",
     "eventType": "Engagement Party",
     "date": "2023-06-25",
@@ -105,6 +111,7 @@
     "RSVPRequired": false
   },
   {
+    "id": "007",
     "eventName": "Sweet 16 Birthday Bash",
     "eventType": "Birthday Party",
     "date": "2023-08-10",
@@ -123,6 +130,7 @@
     "RSVPRequired": true
   },
   {
+    "id": "008",
     "eventName": "Golden Anniversary Gala",
     "eventType": "Anniversary",
     "date": "2023-12-12",
@@ -140,6 +148,7 @@
     "menuOptions": ["Seafood", "Steak", "Vegetarian"]
   },
   {
+    "id": "009",
     "eventName": "Bridal Shower Tea Party",
     "eventType": "Bridal Shower",
     "date": "2023-07-08",
@@ -157,6 +166,7 @@
     "giftRegistry": "www.rachelbridalregistry.com"
   },
   {
+    "id": "010",
     "eventName": "Farewell Retirement BBQ",
     "eventType": "Retirement Party",
     "date": "2023-05-30",

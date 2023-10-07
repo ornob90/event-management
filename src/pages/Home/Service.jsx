@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "../../components/Shared/Container";
 import Button from "../../components/Shared/Button";
 import SectionHeader from "../../components/Shared/SectionHeader";
 import EventCard from "../../components/Shared/EventCard";
+import EventContext from "../../context/EventContext";
 
-const Service = ({ events }) => {
+const Service = () => {
+  const events = useContext(EventContext);
+
   return (
     <div className="w-full">
       <Container>

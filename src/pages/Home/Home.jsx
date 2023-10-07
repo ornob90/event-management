@@ -6,13 +6,11 @@ import EventType from "./EventType";
 import Testimonial from "./Testimonial";
 
 const Home = () => {
-  const events = useLoaderData();
-
   return (
     <>
       <Banner />
       <EventType />
-      <Service events={events} />
+      <Service />
       <Testimonial />
     </>
   );

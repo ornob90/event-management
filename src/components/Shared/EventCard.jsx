@@ -1,7 +1,10 @@
 import React from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const EventCard = ({ event }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="card bg-base-100 shadow-xl image-full h-[300px]">
       <figure>
@@ -20,7 +23,10 @@ const EventCard = ({ event }) => {
           <p className="font-semibold text-xl">
             Price: <span>{event.price}</span>$
           </p>
-          <Button className="bg-black border-none hover:bg-black text-white py-2 px-4 font-medium rounded-lg">
+          <Button
+            onClick={() => navigate(`/event/${event.id}`)}
+            className="bg-black border-none hover:bg-black text-white py-2 px-4 font-medium rounded-lg"
+          >
             Details
           </Button>
         </div>

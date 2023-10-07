@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "../../components/Shared/Container";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import Button from "../../components/Shared/Button";
+import { useParams } from "react-router-dom";
+import EventContext from "../../context/EventContext";
 
 const Detail = () => {
-  const getYearMonthDay = (date) => {
-    return date.split("-");
-  };
+  const [event, setEvent] = useState({});
+  const { id } = useParams();
+  const events = useContext(EventContext);
 
-  const [year, month, day] = getYearMonthDay("2023-05-30");
+  useEffect(() => {
+    setEvent(events.find((event) => event.id === id));
+    // [year, month, day] = getYearMonthDay(event?.date);
+  }, [events]);
 
   return (
     <div className="-mt-16 mb-16">
@@ -24,33 +29,26 @@ const Detail = () => {
       <Container className="grid grid-cols-1 lg:grid-cols-3 mt-5 gap-16 lg:gap-0">
         <div className="space-y-5 lg:col-span-2">
           <h1 className="text-xl sm:text-2xl font-bold">
-            Farewell Retirement BBQ ({" "}
-            <span className="text-orange-600">$500</span> )
+            {event?.eventName} (
+            <span className="text-orange-600">${event?.price}</span> )
           </h1>
 
-          <p className="font-semibold text-medium ">Retirement Party</p>
+          <p className="font-semibold text-medium ">{event?.eventType}</p>
 
-          <p className="text-gray-700 w-[90%]">
-            A casual BBQ farewell party for David's retirement, featuring
-            grilled delights and outdoor games. It's time to bid farewell to
-            David as he embarks on a new chapter of life. Join us for a relaxed
-            BBQ gathering in the Smith family backyard. No formal speeches are
-            scheduled, just good food, great company, and a fond farewell to a
-            dear colleague and friend.
-          </p>
+          <p className="text-gray-700 w-[90%]">{event?.description}</p>
 
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <CiLocationArrow1 className="text-xl" />
-              <p>Smith Family Backyard</p>
+              <p>{event?.location}</p>
             </div>
             <div className="flex items-center gap-2">
               <AiOutlinePhone className="text-xl" />
-              <p>+1 (555) 123-4567</p>
+              <p>{event?.contactPhone}</p>
             </div>
             <div className="flex items-center gap-2">
               <AiOutlineMail className="text-xl" />
-              <p>colleagues@example.com</p>
+              <p>{event?.contactEmail}</p>
             </div>
           </div>
         </div>
@@ -59,24 +57,24 @@ const Detail = () => {
           <div className="flex justify-between  items-center">
             <div>
               <p className="font-bold text-xl">Start</p>
-              <p className="text-gray-600 mt-2 font-medium">6:30 PM</p>
+              <p className="text-gray-600 mt-2 font-medium">{event?.start}</p>
             </div>
             <div>
               <p className="font-bold text-xl">End</p>
-              <p className="text-gray-600 mt-2 font-medium">7:30 PM</p>
+              <p className="text-gray-600 mt-2 font-medium">{event?.end}</p>
             </div>
           </div>
           <div className="flex justify-between items-center">
             <p className="border-2 border-gray-600 py-2 px-5 font-semibold">
-              {year}
+              {event?.date?.split("-")[0]}
             </p>
             <p className="text-3xl font-bold">:</p>
             <p className="border-2 border-gray-600 py-2 px-5 font-semibold">
-              {month}
+              {event?.date?.split("-")[1]}
             </p>
             <p className="text-3xl font-bold">:</p>
             <p className="border-2 border-gray-600 py-2 px-5 font-semibold">
-              {day}
+              {event?.date?.split("-")[2]}
             </p>
           </div>
           <Button className="bg-orange-600 text-white py-2 rounded-md">
