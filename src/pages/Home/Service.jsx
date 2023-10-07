@@ -8,7 +8,7 @@ const Service = ({ events }) => {
     <div className="w-full">
       <Container>
         <SectionHeader title="Services" />
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {events.slice(0, 6).map((event) => (
             <div
               key={event.eventName}
@@ -25,7 +25,7 @@ const Service = ({ events }) => {
                 <h1 className="pb-6 card-title text-2xl font-bold z-[-1]">
                   {event.eventName}
                 </h1>
-                <p className="text-base w-[90%]">{event.shortDesc}</p>
+                <p className="text-base w-full md:w-[90%]">{event.shortDesc}</p>
                 <div className="card-actions justify-end items-center">
                   <p className="font-semibold text-xl">
                     Price: <span>{event.price}</span>$

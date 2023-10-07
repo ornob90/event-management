@@ -3,6 +3,7 @@ import Banner from "../../components/Header/Banner";
 import Service from "./Service";
 import { useLoaderData } from "react-router-dom";
 import EventType from "./EventType";
+import Testimonial from "./Testimonial";
 
 const Home = () => {
   const events = useLoaderData();
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner />
       <EventType />
       <Service events={events} />
+      <Testimonial />
     </>
   );
 };
