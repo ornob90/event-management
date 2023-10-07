@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Button from "../Shared/Button";
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "bg-orange-600 text-white" : ""
+            isActive ? "bg-orange-600 text-white py-2 px-3 rounded-lg" : ""
           }
         >
           Home
@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink
           to="/events"
           className={({ isActive }) =>
-            isActive ? "bg-orange-600 text-white" : ""
+            isActive ? "bg-orange-600 text-white py-2 px-3 rounded-lg" : ""
           }
         >
           Events
@@ -34,8 +34,14 @@ const Navbar = () => {
     </>
   );
 
+  const { pathname } = useLocation();
+
   return (
-    <div className="z-[12] bg-transparent text-white backdrop-blur-lg  navbar w-[full] px-10 mx-auto max-w-[1440px]">
+    <div
+      className={`z-[12] bg-transparent text-white ${
+        pathname !== "/" ? "bg-gray-600" : "backdrop-blur-lg "
+      }  navbar w-[full] px-10 mx-auto max-w-[1440px]`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,7 +62,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-[10] bg-black text-white"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow rounded-box w-52 z-[10] bg-black text-white hove:bg-none"
           >
             <li className="mb-4 flex items-center flex-row ">
               <div className="md:hidden h-[30px] w-[30px] rounded-full border border-black"></div>
@@ -70,7 +76,7 @@ const Navbar = () => {
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="flex justify-between gap-4 px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end flex justify-end gap-4 items-center">
         <p className="hidden md:block ">Towfiq</p>

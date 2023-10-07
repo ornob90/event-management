@@ -15,7 +15,7 @@ const EventCard = ({ event }) => {
         />
       </figure>
       <div className="card-body">
-        <h1 className="pb-6 card-title text-2xl font-bold z-[-1]">
+        <h1 className="pb-6 card-title text-2xl font-bold z-[-1] h-[45%] w-full">
           {event.eventName}
         </h1>
         <p className="text-base w-full md:w-[90%]">{event.shortDesc}</p>

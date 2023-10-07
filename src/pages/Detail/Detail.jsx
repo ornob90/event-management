@@ -17,7 +17,7 @@ const Detail = () => {
   }, [events]);
 
   return (
-    <div className="-mt-16 mb-16">
+    <div className="mb-16">
       <div className="w-full h-[70vh] min-h-[400px]">
         <img
           src="https://images.unsplash.com/photo-1532433517163-b7fec0e9a36f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"

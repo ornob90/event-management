@@ -94,7 +94,7 @@
   {
     "id": "006",
     "eventName": "Engagement Party",
-    "eventType": "Engagement Party",
+    "eventType": "Marriage",
     "date": "2023-06-25",
     "start": "5:30 PM",
     "end": "10:00 PM",
@@ -150,7 +150,7 @@
   {
     "id": "009",
     "eventName": "Bridal Shower Tea Party",
-    "eventType": "Bridal Shower",
+    "eventType": "Marriage",
     "date": "2023-07-08",
     "start": "7:15 PM",
     "end": "9:00 PM",

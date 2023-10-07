@@ -17,7 +17,7 @@ const Testimonial = () => {
       img: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     },
     {
-      id: 2,
+      id: 3,
       comment:
         "I couldn't have asked for a better experience planning our anniversary dinner. The platform provided all the resources we needed, and the event turned out to be truly memorable.",
       img: "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
