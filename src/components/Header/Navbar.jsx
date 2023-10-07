@@ -26,7 +26,14 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/pricing">Pricing</NavLink>
+        <NavLink
+          to="/price"
+          className={({ isActive }) =>
+            isActive ? "bg-orange-600 text-white py-2 px-3 rounded-lg" : ""
+          }
+        >
+          Pricing
+        </NavLink>
       </li>
       <li>
         <NavLink to="/upcoming">Upcoming</NavLink>
