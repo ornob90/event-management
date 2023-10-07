@@ -20,7 +20,7 @@ const Events = () => {
 
   return (
     <Container>
-      <ul className="h-[100px] mx-auto  flex justify-center gap-4 items-center ">
+      <ul className="h-[100px] mx-auto  flex flex-wrap justify-center gap-4 items-center mt-10">
         {eventType.map((category) => (
           <li key={category}>
             <NavLink
