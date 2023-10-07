@@ -56,9 +56,9 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-[10]"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-[10] bg-black text-white"
           >
-            <li className="mb-4 flex items-center flex-row">
+            <li className="mb-4 flex items-center flex-row ">
               <div className="md:hidden h-[30px] w-[30px] rounded-full border border-black"></div>
               <p className="md:hidden">Towfiq</p>
             </li>

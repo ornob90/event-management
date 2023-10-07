@@ -21,9 +21,9 @@ const Detail = () => {
         />
       </div>
 
-      <Container className="grid grid-cols-1 lg:grid-cols-3 mt-5">
+      <Container className="grid grid-cols-1 lg:grid-cols-3 mt-5 gap-16 lg:gap-0">
         <div className="space-y-5 lg:col-span-2">
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl sm:text-2xl font-bold">
             Farewell Retirement BBQ ({" "}
             <span className="text-orange-600">$500</span> )
           </h1>
@@ -55,7 +55,7 @@ const Detail = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:col-span-1 px-10 py-10 border border-gray-300 shadow-lg justify-between ">
+        <div className="flex flex-col lg:col-span-1 px-10 py-10 border border-gray-300 shadow-lg justify-between min-h-[300px]">
           <div className="flex justify-between  items-center">
             <div>
               <p className="font-bold text-xl">Start</p>
