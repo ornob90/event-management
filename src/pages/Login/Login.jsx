@@ -1,17 +1,21 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 import { NavLink } from "react-router-dom";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { updateProfile } from "firebase/auth";
 
 const Login = () => {
   const { signInMethod, authObserver, passwordResetMethod } =
     useContext(AuthContext);
   const emailRef = useRef();
+  const [showPass, setShowPass] = useState(false);
 
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    e.target.email.value = "";
+    e.target.password.value = "";
 
     signInMethod(email, password)
       .then((res) => {
@@ -47,11 +51,22 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   placeholder="password"
                   className="input input-bordered"
                   name="password"
                 />
+                {showPass ? (
+                  <AiOutlineEyeInvisible
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute top-[45%] right-[15%] text-xl"
+                  />
+                ) : (
+                  <AiOutlineEye
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute top-[45%] right-[15%] text-xl"
+                  />
+                )}
                 <label className="label">
                   <NavLink href="#" className="label-text-alt link link-hover">
                     Forgot password?
