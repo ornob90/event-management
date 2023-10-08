@@ -5,10 +5,10 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { updateProfile } from "firebase/auth";
 
 const Login = () => {
-  const { signInMethod, authObserver, passwordResetMethod } =
-    useContext(AuthContext);
+  const { signInMethod, googleSignInMethod } = useContext(AuthContext);
   const emailRef = useRef();
   const [showPass, setShowPass] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -21,22 +21,42 @@ const Login = () => {
 
     signInMethod(email, password)
       .then((res) => {
+        setErrorMsg("");
         if (state) {
           navigate(state);
         } else {
           navigate("/");
         }
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => {
+        setErrorMsg(err.message);
+        console.log(err.message);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignInMethod()
+      .then((res) => {
+        setErrorMsg("");
+        if (state) {
+          navigate(state);
+        } else {
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        setErrorMsg(err.message);
+        console.log(err);
+      });
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col ">
+      <div className="hero-content flex-col w-full">
         <div className="text-center ">
           <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
           <div className="card-body">
             <form onSubmit={handleSignIn}>
               <div className="form-control">
@@ -51,7 +71,7 @@ const Login = () => {
                   name="email"
                 />
               </div>
-              <div className="form-control">
+              <div className="relative form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -61,15 +81,15 @@ const Login = () => {
                   className="input input-bordered"
                   name="password"
                 />
-                {showPass ? (
+                {!showPass ? (
                   <AiOutlineEyeInvisible
                     onClick={() => setShowPass(!showPass)}
-                    className="absolute top-[45%] right-[15%] text-xl"
+                    className="absolute top-[44%] right-[8%] text-xl"
                   />
                 ) : (
                   <AiOutlineEye
                     onClick={() => setShowPass(!showPass)}
-                    className="absolute top-[45%] right-[15%] text-xl"
+                    className="absolute top-[44%] right-[8%] text-xl"
                   />
                 )}
                 <label className="label">
@@ -78,8 +98,17 @@ const Login = () => {
                   </NavLink>
                 </label>
               </div>
+              {errorMsg && (
+                <p className="text-red-600 font-medium text-sm">{errorMsg}</p>
+              )}
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-ghost border border-black mt-4"
+                >
+                  Sign In With Google
+                </button>
               </div>
             </form>
             <p>

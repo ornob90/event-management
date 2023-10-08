@@ -51,7 +51,7 @@ const SignUp = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col ">
+      <div className="hero-content flex-col w-full">
         <div className="text-center ">
           <h1 className="text-5xl font-bold">Register now!</h1>
         </div>
@@ -123,7 +123,9 @@ const SignUp = () => {
                   </a>
                 </label>
               </div>
-              <p className="text-red-600 font-medium">{errorMsg}</p>
+              {errorMsg && (
+                <p className="text-red-600 font-medium">{errorMsg}</p>
+              )}
 
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register</button>
