@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Container from "../../components/Shared/Container";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import PrivateRoute from "../../routes/PrivateRoute";
 
 const Events = () => {
   const navigate = useNavigate();

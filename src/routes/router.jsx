@@ -8,6 +8,7 @@ import Price from "../pages/Price/Price";
 import Upcoming from "../pages/Upcoming/Upcoming";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -21,25 +22,45 @@ export const router = createBrowserRouter([
       },
       {
         path: "/events",
-        element: <Events />,
+        element: (
+          <PrivateRoute>
+            <Events />
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "events/:category",
-            element: <EventsByCatg />,
+            element: (
+              <PrivateRoute>
+                <EventsByCatg />
+              </PrivateRoute>
+            ),
           },
         ],
       },
       {
         path: "/event/:id",
-        element: <Detail />,
+        element: (
+          <PrivateRoute>
+            <Detail />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/price",
-        element: <Price />,
+        element: (
+          <PrivateRoute>
+            <Price />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/upcoming",
-        element: <Login />,
+        element: (
+          <PrivateRoute>
+            <Upcoming />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

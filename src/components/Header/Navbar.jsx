@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Button from "../Shared/Button";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const navLinks = (
@@ -38,10 +38,24 @@ const Navbar = () => {
       <li>
         <NavLink to="/upcoming">Upcoming</NavLink>
       </li>
+      <li>
+        <NavLink to="/login">Login</NavLink>
+      </li>
     </>
   );
 
+  const { signOutMethod } = useAuth();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    signOutMethod()
+      .then(() => {
+        console.log("Signed Out");
+        navigate("/login");
+      })
+      .catch((err) => console.log(err.message));
+  };
 
   return (
     <div
@@ -89,7 +103,10 @@ const Navbar = () => {
         <p className="hidden md:block ">Towfiq</p>
         <div className="hidden md:block h-[30px] w-[30px] rounded-full border border-black"></div>
 
-        <Button className="text-sm md:text-base py-[5px] px-3 bg-orange-500 text-white rounded-lg">
+        <Button
+          onClick={handleSignOut}
+          className="text-sm md:text-base py-[5px] px-3 bg-orange-500 text-white rounded-lg"
+        >
           Sign Out
         </Button>
       </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import AuthContext from "../../context/AuthContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { updateProfile } from "firebase/auth";
 
@@ -9,6 +9,8 @@ const Login = () => {
     useContext(AuthContext);
   const emailRef = useRef();
   const [showPass, setShowPass] = useState(false);
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -19,8 +21,11 @@ const Login = () => {
 
     signInMethod(email, password)
       .then((res) => {
-        authObserver(res.user);
-        console.log(res.user);
+        if (state) {
+          navigate(state);
+        } else {
+          navigate("/");
+        }
       })
       .catch((err) => alert(err.message));
   };
