@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../components/Shared/Button";
 
 const PriceCard = ({ priceType }) => {
   const { services, price } = priceType;
@@ -17,13 +18,16 @@ const PriceCard = ({ priceType }) => {
       <p>
         <span className="text-4xl">${price}</span>/mo
       </p>
-      <div className=" w-full list-none text-center space-y-4 font-semibold">
+      <ul className=" w-full list-none text-center space-y-4 font-semibold">
         {services.map(({ name, available }) => (
           <li className={`${available ? "" : "line-through"} `} key={name}>
             {name}
           </li>
         ))}
-      </div>
+      </ul>
+      <Button className="bg-black text-white w-full py-2 rounded-lg">
+        Register
+      </Button>
     </div>
   );
 };

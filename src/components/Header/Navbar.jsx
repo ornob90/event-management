@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`z-[12] bg-transparent text-white ${
+      className={`z-[12]  text-white ${
         pathname !== "/" ? "bg-gray-600" : "backdrop-blur-lg "
       }  navbar w-[full] px-10 mx-auto max-w-[1440px]`}
     >
