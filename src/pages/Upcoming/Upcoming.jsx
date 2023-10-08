@@ -24,7 +24,10 @@ const Upcoming = () => {
   return (
     <div className=" w-full min-h-[90vh] flex justify-center items-center bg-upcoming">
       <div className="flex flex-col gap-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-center">
+        <h1
+          data-aos="fade-up"
+          className="text-3xl md:text-5xl font-bold text-center"
+        >
           Discover What's Around the Corner"
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 w-[50%] mx-auto">
@@ -39,12 +42,18 @@ const Upcoming = () => {
           ))}
         </div>
         <div className="flex justify-center items-center gap-4 flex-wrap">
-          <Button className="py-[5.5px] px-2 bg-orange-600 text-white ">
+          <button
+            data-aos="fade-left"
+            className="py-[5.5px] px-2 bg-orange-600 text-white  active:scale-95 duration-300"
+          >
             REGISTER NOW
-          </Button>
-          <Button className="border-white border py-1 px-2 text-white">
+          </button>
+          <button
+            data-aos="fade-right"
+            className="border-white border py-1 px-2 text-white active:scale-95 duration-300"
+          >
             BECOME A SPONSOR
-          </Button>
+          </button>
         </div>
       </div>
     </div>

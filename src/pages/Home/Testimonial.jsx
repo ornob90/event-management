@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../../components/Shared/Container";
 import SectionHeader from "../../components/Shared/SectionHeader";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 const Testimonial = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   const reviews = [
     {
       id: 1,
@@ -29,11 +36,14 @@ const Testimonial = () => {
       <Container>
         <SectionHeader title="Testimonial" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {reviews.map(({ id, comment, img }) => (
             <div
               key={id}
               className="flex flex-col gap-2 justify-center items-center border border-gray-400 py-8 rounded-lg"
+              data-aos={
+                id === 1 ? "fade-left" : id === 2 ? "fade-down" : "fade-right"
+              }
             >
               <img
                 src={img}
@@ -43,6 +53,48 @@ const Testimonial = () => {
               <p className="w-[90%] mx-auto text-center mt-5">{comment}</p>
             </div>
           ))}
+        </div> */}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div
+            className="flex flex-col gap-2 justify-center items-center border border-gray-400 py-8 rounded-lg"
+            data-aos="fade-left"
+          >
+            <img
+              src={reviews[0].img}
+              alt=""
+              className="h-[50px] w-[50px] rounded-full object-cover"
+            />
+            <p className="w-[90%] mx-auto text-center mt-5">
+              {reviews[0].comment}
+            </p>
+          </div>
+          <div
+            className="flex flex-col gap-2 justify-center items-center border border-gray-400 py-8 rounded-lg"
+            data-aos="fade-up"
+          >
+            <img
+              src={reviews[1].img}
+              alt=""
+              className="h-[50px] w-[50px] rounded-full object-cover"
+            />
+            <p className="w-[90%] mx-auto text-center mt-5">
+              {reviews[1].comment}
+            </p>
+          </div>
+          <div
+            className="flex flex-col gap-2 justify-center items-center border border-gray-400 py-8 rounded-lg"
+            data-aos="fade-right"
+          >
+            <img
+              src={reviews[0].img}
+              alt=""
+              className="h-[50px] w-[50px] rounded-full object-cover"
+            />
+            <p className="w-[90%] mx-auto text-center mt-5">
+              {reviews[0].comment}
+            </p>
+          </div>
         </div>
       </Container>
     </div>

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Header/Navbar";
 import EventProvider from "../provider/EventProvider";
 import Footer from "../pages/Footer/Footer";
 import AuthProvider from "../provider/AuthProvider";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Root = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <AuthProvider>
       <EventProvider>
