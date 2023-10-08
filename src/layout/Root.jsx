@@ -14,7 +14,7 @@ const Root = () => {
   return (
     <AuthProvider>
       <EventProvider>
-        <div className="relative max-w-[1440px] mx-auto">
+        <div className="relative max-w-[1440px] mx-auto overflow-hidden">
           <Navbar />
           <Outlet />
           <Footer />

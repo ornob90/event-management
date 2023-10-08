@@ -3,6 +3,7 @@ import AuthContext from "../../context/AuthContext";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signInMethod, googleSignInMethod } = useContext(AuthContext);
@@ -22,6 +23,14 @@ const Login = () => {
     signInMethod(email, password)
       .then((res) => {
         setErrorMsg("");
+
+        Swal.fire({
+          icon: "success",
+          title: "You have successfully logged in",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
         if (state) {
           navigate(state);
         } else {
@@ -102,10 +111,12 @@ const Login = () => {
                 <p className="text-red-600 font-medium text-sm">{errorMsg}</p>
               )}
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-black text-white hover:bg-black hover:text-white">
+                  Login
+                </button>
                 <button
                   onClick={handleGoogleSignIn}
-                  className="btn btn-ghost border border-black mt-4"
+                  className="btn btn-ghost hover:bg-black hover:text-white border border-black mt-4"
                 >
                   Sign In With Google
                 </button>

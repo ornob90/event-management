@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { signUpMethod } = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const navigate = useNavigate();
+  const { state } = useLocation();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -38,10 +41,22 @@ const SignUp = () => {
 
     signUpMethod(email, password)
       .then((res) => {
+        setErrorMsg("");
         updateProfile(res.user, {
           displayName: name,
           photoURL: photo,
         });
+        Swal.fire({
+          icon: "success",
+          title: "You have successfully Registered",
+          showConfirmButton: true,
+          timer: 1500,
+        });
+        if (state) {
+          navigate(state);
+        } else {
+          navigate("/");
+        }
       })
       .catch((err) => {
         setErrorMsg(err.message);
@@ -128,7 +143,9 @@ const SignUp = () => {
               )}
 
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button className="btn bg-black text-white hover:bg-black hover:text-white">
+                  Sign Up
+                </button>
               </div>
             </form>
             <p>
