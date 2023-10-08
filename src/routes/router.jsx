@@ -6,6 +6,8 @@ import Events from "../pages/Events/Events";
 import EventsByCatg from "../pages/Events/EventsByCatg";
 import Price from "../pages/Price/Price";
 import Upcoming from "../pages/Upcoming/Upcoming";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/SignUp/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +39,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/upcoming",
-        element: <Upcoming />,
+        element: <Login />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },
